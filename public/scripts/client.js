@@ -29,7 +29,14 @@
 //   }
 // ];
 
-const renderTweets = function(tweets) {
+//function to escap unsafe text
+const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+  
+  const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -50,7 +57,7 @@ const renderTweets = function(tweets) {
              </div>
              <p class="handler">${tweet.user.handle}</p>
             </header>
-            <p class="tweet-text">${tweet.content.text}</p>
+            <p class="tweet-text">${escape(tweet.content.text)}</p>
             <footer>${tweet.created_at}</footer>
           </article>
     ` ;
@@ -80,7 +87,8 @@ const renderTweets = function(tweets) {
       } else if ($('#tweet-text').val().length > 140) {
         alert('Sorry, your tweet is longer than 140 characters!!')
       } else {
-        $.ajax({url: '/tweets/', method: 'POST', data: $('#tweet-text').serialize()} ).then( function(){
+        const input = $('#tweet-text').serialize();
+        $.ajax({url: '/tweets/', method: 'POST', data: $('#tweet-text').serialize()}).then( function(){
           console.log('inside post');
           $('#tweet-text').val('');
           $('.counter').val(140);
@@ -92,3 +100,4 @@ const renderTweets = function(tweets) {
      
     });
   } ) ;
+  
