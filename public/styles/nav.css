@@ -1,0 +1,17 @@
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    height: 120px;
+    width: 100vw;
+    padding: 1.5em;
+    background-color: #4056A1;
+    color: #FFFFFF;
+    font-family: 'Bungee', sans-serif;
+}
+nav .nav-link {
+    float: right;
+    font-family: 'Source Sans Pro', sans-serif;
+}
