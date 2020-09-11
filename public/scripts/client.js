@@ -39,7 +39,7 @@ const data = [
       $('#tweet-container').append(attachedTweet);
     }
   }
-  
+
   //displaying the tweets dynamically
   const createTweetElement = function(tweet) {
     let $tweet = `
@@ -60,6 +60,17 @@ const data = [
   }
   
   $(document).ready(function(){
+
+    //Fetch the tweets using ajax
+    const loadTweets = function (){
+    $.ajax('/tweets/',{method: 'GET', dataType: 'JSON'}).then( function(response){
+ 
+     renderTweets(response)
+    } 
+    );
+   }
+ 
+   loadTweets();
   
     renderTweets(data);
 
