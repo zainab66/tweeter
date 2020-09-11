@@ -3,33 +3,39 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+}
   
-  .tweet-form {
+.tweet-form {
     display: flex;
     flex-direction: column;
-  }
+ }
   
-  .tweet-form label {
+.tweet-form label {
     font-weight: bold;
-  }
+}
   
-  #tweet-text {
+#tweet-text {
     border-style: none;
     border-bottom: 5px solid black;
     background-color: inherit;
-    font-size: 70%;
+    outline: none;
+    font-size: 80%;
     height: 30;
-  }
+}
   
-  footer {
+footer {
     display: flex;
     justify-content: space-between;
     margin-top:1em;
     font-family:'Bungee', sans-serif;
-  }
+}
   
-  footer button {
+footer button {
     background-color:#4056A1;
     color: white;
-  }
+}
+
+
+footer .red{
+    color: red;
+}
