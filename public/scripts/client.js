@@ -40,6 +40,7 @@ const data = [
     }
   }
   
+  //displaying the tweets dynamically
   const createTweetElement = function(tweet) {
     let $tweet = `
           <article class="tweet">
@@ -61,5 +62,16 @@ const data = [
   $(document).ready(function(){
   
     renderTweets(data);
+
+  //Form submission handeling
+  $(".tweet-form").on('submit', function(evt) {
+    evt.preventDefault();
+    console.log($('#tweet-text').serialize());
+    $.ajax('/tweets/', {method: 'POST', data: $('#tweet-text').serialize()} ).then(
+  
+    )
+  });
+
+
   } ) ;
   
