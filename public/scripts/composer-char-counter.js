@@ -15,13 +15,5 @@ $(document).ready(function () {
       }
      
         $(counter).text(140 - textLength);
-      
-    
-      //console.log(this.siblings());
-      // const temp = this.siblings()[1];
-    
-    
-      // console.log($(temp).children()[1]);
-      //console.log(event.originalEvent.key);
     });
     });

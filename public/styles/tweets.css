@@ -53,3 +53,9 @@ article {
     font-style: oblique;
     color: rgb(189, 182, 233);
   }
+
+
+  .change-visibility {
+    visibility: visible;
+  }
+  

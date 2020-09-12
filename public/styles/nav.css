@@ -7,11 +7,18 @@
     height: 120px;
     width: 100vw;
     padding: 1.5em;
-    background-color: #4056A1;
+    background-color: #e5a63c;
     color: #FFFFFF;
     font-family: 'Bungee', sans-serif;
 }
 nav .nav-link {
     float: right;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+    .fixed-top {
+  
+      background-color:#4056A1;
+    }
 }

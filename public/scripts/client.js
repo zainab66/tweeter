@@ -86,13 +86,13 @@ const escape =  function(str) {
       if(! $('#tweet-text').val()){
         //alert("Sorry, you can't post an empty tweet");
         $('#error-text').text("Sorry, you can't post an empty tweet");
-        //$('#error-message').addClass('change-visibility');
+        $('#error-message').removeClass('hidden');
         $('#error-message').css('visibility','visible');
         $('#error-message').slideDown();
       } else if ($('#tweet-text').val().length > 140) {
         //alert('Sorry, your tweet is longer than 140 characters!!')
         $('#error-text').text('Sorry, your tweet is longer than 140 characters!!');
-        $('#error-message').css('visibility','visible');
+        $('#error-message').removeClass('hidden');
         $('#error-message').slideDown();
       } else {
         const input = $('#tweet-text').serialize();

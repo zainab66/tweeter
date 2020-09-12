@@ -46,7 +46,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     border: 5px solid red;
-    visibility: hidden; 
   }
   
   #error-message img{
@@ -55,7 +54,7 @@
   
   }
   
-  .change-visibility{
+  .hidden{
     visibility: visible; 
     /* border: 5px solid green; */
   }
