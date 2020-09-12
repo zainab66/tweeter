@@ -34,8 +34,44 @@ const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
-  
+  };
+
+
+//The input time is milliseconds and the resturn the value is the approximate time in minutes, hours or days
+const changeTime = function (time) {
+  let temp;
+  if (time) {
+    const timeMin = Math.floor((Date.now() - Number(time)) / 60000);
+    if(timeMin < 1) {
+        return 'now';
+    } else if (timeMin === 1) {
+        return '1 minute ago';
+    } else if ( timeMin > 1 & timeMin < 60) {
+        return `${timeMin} minutes ago`;
+    } else if (timeMin >= 60 & timeMin < 1440) {
+        temp = Math.floor(timeMin / 60);
+        return `${temp} hours ago`;
+    } else {
+        temp = Math.floor(timeMin / 1440);
+        if (temp === 1) {
+          return `one day ago`;
+        } else if (temp < 30 ) {
+            return `${temp} days ago`;
+        } else {
+          temp = Math.floor(temp / 365);
+          if (temp === 1) {
+            return `one year ago`;
+          } else {
+            return `${temp} years ago`;
+          }
+
+        }
+    } 
+
+  } else {
+    return ''
+  } 
+};
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -58,7 +94,7 @@ const escape =  function(str) {
              <p class="handler">${tweet.user.handle}</p>
             </header>
             <p class="tweet-text">${escape(tweet.content.text)}</p>
-            <footer>${tweet.created_at}</footer>
+            <footer>${changeTime(tweet.created_at)}</footer>
           </article>
     ` ;
   
@@ -86,13 +122,13 @@ const escape =  function(str) {
       if(! $('#tweet-text').val()){
         //alert("Sorry, you can't post an empty tweet");
         $('#error-text').text("Sorry, you can't post an empty tweet");
-        $('#error-message').removeClass('hidden');
+        $('#error-message').addClass('visible');
         $('#error-message').css('visibility','visible');
         $('#error-message').slideDown();
       } else if ($('#tweet-text').val().length > 140) {
         //alert('Sorry, your tweet is longer than 140 characters!!')
         $('#error-text').text('Sorry, your tweet is longer than 140 characters!!');
-        $('#error-message').removeClass('hidden');
+        $('#error-message').addClass('visible');
         $('#error-message').slideDown();
       } else {
         const input = $('#tweet-text').serialize();
@@ -101,7 +137,7 @@ const escape =  function(str) {
           $('#tweet-text').val('');
           $('.counter').val(140);
           $('#error-message').slideUp();
-          $('#error-message').css('visibility','hidden');
+          $('#error-message').addClass('hidden');
           $('#tweet-container').empty();
           loadTweets();
   

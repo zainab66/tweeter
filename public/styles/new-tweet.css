@@ -59,6 +59,12 @@
     /* border: 5px solid green; */
   }
   
+
+  .visible {
+    visibility: visible;
+  }
+
+
   #error-text {
     color: red;
     
