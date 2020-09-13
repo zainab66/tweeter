@@ -1,24 +1,42 @@
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1000;
-    height: 120px;
-    width: 100vw;
-    padding: 1.5em;
-    background-color: #e5a63c;
-    color: #FFFFFF;
-    font-family: 'Bungee', sans-serif;
-}
-nav .nav-link {
-    float: right;
-    font-family: 'Source Sans Pro', sans-serif;
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  height: 120px;
+  width: 100vw;
+  padding: 1.5em;
+  color: #FFF;
 }
 
-@media only screen and (min-width: 768px) {
-    .fixed-top {
-  
-      background-color:#4056A1;
-    }
+nav span.logo {
+  font-family: "Bungee", cursive;
+}
+
+.nav-link, .fa-angle-double-down{
+  float: right;
+  margin-right: 50px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+
+
+.fa-angle-double-down {
+  margin-right: 150px;
+  animation: upDown 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes upDown {
+  0% {margin-top: 0px; color: rgba(255, 166, 0, 0.829);}
+  50% {margin-top: 18px; color: rgba(255, 60, 0, 0.829);}
+  100% {margin-top: 0px; color: rgba(255, 166, 0, 0.829);}
+}
+@media only screen and (min-width: 1024px) {
+  nav {
+
+    background-color:#4056A1;
+  }
 }

@@ -3,7 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -19,7 +19,6 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  padding-top: 20px;
 }
 
 /*
@@ -27,17 +26,22 @@ body {
  */
 
 
+ #header-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main {
   width: 90%;
-  margin: auto;
+  padding: 50px 0;
 }
 
-.create-tweet {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.tweet-input {
-  width: 90%;
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  #header-part {
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+  }
 }
