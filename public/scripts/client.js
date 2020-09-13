@@ -68,7 +68,13 @@ const createTweetElement = function(tweet) {
            <p class="handler">${tweet.user.handle}</p>
           </header>
           <p class="tweet-text">${escape(tweet.content.text)}</p>
-          <footer>${changeTime(tweet.created_at)}</footer>
+          <footer>${changeTime(tweet.created_at)}
+          <span id="tweet-icons">
+          <img src="/images/heart.png">
+          <img src="/images/retweet30px.png">
+          <img src="/images/flag24.png">
+
+        </span></footer>
         </article>
   `;
 
@@ -115,5 +121,15 @@ $(document).ready(function() {
       });
     }
    
+  });
+});
+
+
+$(() => {
+  const formArrow = $('.fa-angle-double-down');
+  formArrow.on('click', () => {
+    const form = $('.new-tweet');
+    form.slideToggle(500);
+    $('textarea').focus();
   });
 });
